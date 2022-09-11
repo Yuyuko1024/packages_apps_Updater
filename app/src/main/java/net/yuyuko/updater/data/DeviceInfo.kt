@@ -18,12 +18,12 @@ package net.yuyuko.updater.data
 
 import android.os.SystemProperties
 
-private const val PROP_DEVICE = "ro.flamingo.build.device"
+private const val PROP_DEVICE = "ro.build.product"
 private const val PROP_DATE = "ro.build.date.utc"
-private const val PROP_VERSION = "ro.flamingo.build.version"
+private const val PROP_VERSION = "ro.yuyuko.aospmod.build.version"
 private const val PROP_BUILD_VERSION_INCREMENTAL = "ro.build.version.incremental"
 private const val PROP_AB_UPDATE = "ro.build.ab_update"
-private const val PROP_FLAVOR = "ro.flamingo.build.flavor"
+private const val PROP_FLAVOR = "ro.yuyuko.aospmod.build.gms"
 
 val Device: String
     get() = SystemProperties.get(PROP_DEVICE, "Unknown")

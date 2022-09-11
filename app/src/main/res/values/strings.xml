@@ -32,9 +32,8 @@
 
     <!-- Main activity -->
     <string name="updater_logo_description">Updater logo</string>
-    <string name="system_version_format" translatable="false">
-        Flamingo OS v<xliff:g example="2.3" id="version">%1$s</xliff:g>
-    </string>
+    <string name="system_version_format" translatable="false">"
+        Yuyuko AOSP Mod <xliff:g example="2.3" id="version">%1$s</xliff:g>     "</string>
     <string name="check_for_updates">Check for updates</string>
     <string name="checking_for_update">Checking for updates…</string>
     <string name="update_check_failed">Update check failed</string>
@@ -45,7 +44,7 @@
     <string name="come_back_later">Come back later…</string>
     <string name="new_update_available">New update available</string>
     <string name="new_update_description_format">
-        v<xliff:g example="2.3" id="version">%1$s</xliff:g>\u0020\u0020|\u0020\u0020<xliff:g example="12-11-2021" id="date">%2$s</xliff:g>\u0020\u0020|\u0020\u0020<xliff:g example="1.3GB" id="size">%3$s</xliff:g>
+        <xliff:g example="2.3" id="version">%1$s</xliff:g>\u0020\u0020|\u0020\u0020<xliff:g example="12-11-2021" id="date">%2$s</xliff:g>\u0020\u0020|\u0020\u0020<xliff:g example="1.3GB" id="size">%3$s</xliff:g>
     </string>
     <string name="download">Download</string>
     <string name="select_download_source">Select download source</string>
