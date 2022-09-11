@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2022 FlamingoOS Project
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -14,14 +14,21 @@
  * limitations under the License.
  */
 
-syntax = "proto3";
+package net.yuyuko.updater.data.room
 
-option java_package = "net.yuyuko.updater.data";
-option java_multiple_files = true;
+import androidx.room.Database
+import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
-message SavedState {
-  int64 last_checked_time = 1;
-  bool download_finished = 2;
-  bool update_finished = 3;
-  int64 last_alarm_schedule_time = 4;
+@Database(
+    entities = [
+        BuildInfoEntity::class,
+        ChangelogEntity::class
+    ],
+    version = 4,
+    exportSchema = false,
+)
+@TypeConverters(Converters::class)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun updateInfoDao(): UpdateInfoDao
 }

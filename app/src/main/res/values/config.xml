@@ -16,7 +16,7 @@
 -->
 <resources>
     <!-- Fully qualified class name of update download service -->
-    <string name="download_service" translatable="false">com.flamingo.updater.services.UpdateDownloadService</string>
+    <string name="download_service" translatable="false">net.yuyuko.updater.services.UpdateDownloadService</string>
 
     <!-- Minimum time interval (in ms) to wait before restarting job -->
     <integer name="minimum_download_retry_interval">10000</integer>

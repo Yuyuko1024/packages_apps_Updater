@@ -14,14 +14,10 @@
  * limitations under the License.
  */
 
-syntax = "proto3";
+package net.yuyuko.updater.data
 
-option java_package = "net.yuyuko.updater.data";
-option java_multiple_files = true;
-
-message SavedState {
-  int64 last_checked_time = 1;
-  bool download_finished = 2;
-  bool update_finished = 3;
-  int64 last_alarm_schedule_time = 4;
+sealed interface FileCopyStatus {
+    object Copying : FileCopyStatus
+    object Success : FileCopyStatus
+    class Failure(val reason: String?) : FileCopyStatus
 }

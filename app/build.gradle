@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.flamingo.updater'
+    namespace 'net.yuyuko.updater'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.flamingo.updater"
+        applicationId "net.yuyuko.updater"
         minSdk 31
         targetSdk 33
         versionCode 1

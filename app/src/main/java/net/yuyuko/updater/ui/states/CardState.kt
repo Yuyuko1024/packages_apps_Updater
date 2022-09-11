@@ -14,14 +14,11 @@
  * limitations under the License.
  */
 
-syntax = "proto3";
+package net.yuyuko.updater.ui.states
 
-option java_package = "net.yuyuko.updater.data";
-option java_multiple_files = true;
-
-message SavedState {
-  int64 last_checked_time = 1;
-  bool download_finished = 2;
-  bool update_finished = 3;
-  int64 last_alarm_schedule_time = 4;
+sealed interface CardState {
+    object Gone: CardState
+    object NoUpdate : CardState
+    object Download : CardState
+    object Update : CardState
 }

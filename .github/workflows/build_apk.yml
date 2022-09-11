@@ -7,7 +7,7 @@ concurrency:
 on:
   push:
     branches:
-      - 'A12.1'
+      - '12.1'
     paths-ignore:
       - '**.mkdn'
       - '.**'
@@ -31,12 +31,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Clone our prebuilts
-        run: |
-          git clone https://.:${{ secrets.API_TOKEN_GITHUB }}@github.com/Flamingo-OS/vendor_prebuilts
-          mkdir app/libs
-          cp vendor_prebuilts/libs/framework.jar vendor_prebuilts/libs/support-compose.aar app/libs/
-
       - name: Set up Java 11
         uses: actions/setup-java@v3
         with:
@@ -56,34 +50,3 @@ jobs:
           newArtifactPath="app/build/outputs/apk/release/Updater.apk"
           echo "ARTIFACT_PATH=$newArtifactPath" >> $GITHUB_ENV
           mv "$oldArtifactPath" "$newArtifactPath"
-
-      - name: Setting git config
-        if: ${{ !github.event.pull_request }}
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-      - name: Export commit hash
-        if: ${{ !github.event.pull_request }}
-        run: |
-          git_hash=$(git rev-parse "$GITHUB_SHA")
-          link="https://github.com/Flamingo-OS/packages_apps_Updater/commit/$git_hash"
-          echo "GIT_LINK=$link" >> $GITHUB_ENV
-
-      - name: Uploading artifact
-        if: ${{ !github.event.pull_request }}
-        run: |
-          mkdir -p vendor_prebuilts/app/Updater
-          cp ${{ env.ARTIFACT_PATH }} vendor_prebuilts/app/Updater
-          cd vendor_prebuilts/
-          git pull
-          git add .
-          if [[ `git status --porcelain` ]] ; then
-            if [[ "${{ github.event_name }}" == "workflow_dispatch" ]] ; then
-              message="${{ github.event.inputs.message }}"
-            else
-              message="Update Updater APK for ${{ env.GIT_LINK }}"
-            fi
-            git commit -m "$message"
-            git push origin A12.1
-          fi

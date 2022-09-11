@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-syntax = "proto3";
+package net.yuyuko.updater.data.update
 
-option java_package = "net.yuyuko.updater.data";
-option java_multiple_files = true;
-
-message SavedState {
-  int64 last_checked_time = 1;
-  bool download_finished = 2;
-  bool update_finished = 3;
-  int64 last_alarm_schedule_time = 4;
+sealed interface UpdateState {
+    object Idle : UpdateState
+    object Initializing : UpdateState
+    data class Verifying(val progress: Float) : UpdateState
+    data class Updating(val progress: Float) : UpdateState
+    data class Paused(val progress: Float) : UpdateState
+    data class Failed(val progress: Float, val exception: Throwable) : UpdateState
+    object Finished : UpdateState
 }

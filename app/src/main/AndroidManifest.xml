@@ -18,9 +18,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:sharedUserId="android.uid.system">
 
-    <protected-broadcast android:name="com.flamingo.updater.action.CANCEL_UPDATE" />
-    <protected-broadcast android:name="com.flamingo.updater.action.REBOOT" />
-    <protected-broadcast android:name="com.flamingo.updater.action.CANCEL_AUTO_REBOOT" />
+    <protected-broadcast android:name="net.yuyuko.updater.action.CANCEL_UPDATE" />
+    <protected-broadcast android:name="net.yuyuko.updater.action.REBOOT" />
+    <protected-broadcast android:name="net.yuyuko.updater.action.CANCEL_AUTO_REBOOT" />
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -40,7 +40,7 @@
     </queries>
 
     <application
-        android:name=".UpdaterApp"
+        android:name="net.yuyuko.updater.UpdaterApp"
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true"
         android:hardwareAccelerated="true"
@@ -50,7 +50,7 @@
         tools:ignore="AllowBackup,MissingApplicationIcon">
 
         <activity
-            android:name=".ui.MainActivity"
+            android:name="net.yuyuko.updater.ui.MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
             android:resizeableActivity="false"
@@ -84,7 +84,7 @@
         </activity>
 
         <receiver
-            android:name=".BootCompleteReceiver"
+            android:name="net.yuyuko.updater.BootCompleteReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
@@ -92,16 +92,16 @@
         </receiver>
 
         <service
-            android:name=".services.PeriodicUpdateCheckerService"
+            android:name="net.yuyuko.updater.services.PeriodicUpdateCheckerService"
             android:exported="false" />
 
         <service
-            android:name=".services.UpdateDownloadService"
+            android:name="net.yuyuko.updater.services.UpdateDownloadService"
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <service
-            android:name=".services.UpdateInstallerService"
+            android:name="net.yuyuko.updater.services.UpdateInstallerService"
             android:exported="false" />
     </application>
 </manifest>

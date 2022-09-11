@@ -14,14 +14,18 @@
  * limitations under the License.
  */
 
-syntax = "proto3";
+package net.yuyuko.updater.data.download
 
-option java_package = "net.yuyuko.updater.data";
-option java_multiple_files = true;
-
-message SavedState {
-  int64 last_checked_time = 1;
-  bool download_finished = 2;
-  bool update_finished = 3;
-  int64 last_alarm_schedule_time = 4;
+data class DownloadInfo(
+    val url: String,
+    val name: String,
+    val size: Long,
+    val sha512: String,
+) {
+    companion object {
+        const val URL = "url"
+        const val FILE_NAME = "file_name"
+        const val FILE_SIZE = "file_size"
+        const val SHA_512 = "sha_512"
+    }
 }
