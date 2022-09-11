@@ -50,3 +50,10 @@ jobs:
           newArtifactPath="app/build/outputs/apk/release/Updater.apk"
           echo "ARTIFACT_PATH=$newArtifactPath" >> $GITHUB_ENV
           mv "$oldArtifactPath" "$newArtifactPath"
+
+      - name: Upload build artifact
+        if: runner.os == 'Linux'
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ github.sha }}
+          path: app/build/outputs/apk/release/
