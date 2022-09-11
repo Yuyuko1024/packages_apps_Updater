@@ -35,7 +35,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
-import net.yuyuko.support.compose.ui.layout.CollapsingToolbarLayout
+import com.flamingo.support.compose.ui.layout.CollapsingToolbarLayout
 import net.yuyuko.updater.R
 import net.yuyuko.updater.ui.states.ChangelogScreenState
 import net.yuyuko.updater.ui.states.rememberChangelogScreenState

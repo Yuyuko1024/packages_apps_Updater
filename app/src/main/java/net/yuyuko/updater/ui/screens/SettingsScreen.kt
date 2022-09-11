@@ -38,11 +38,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.DialogProperties
 import androidx.navigation.NavHostController
 
-import net.yuyuko.support.compose.ui.layout.CollapsingToolbarLayout
-import net.yuyuko.support.compose.ui.preferences.DiscreteSeekBarPreference
-import net.yuyuko.support.compose.ui.preferences.Entry
-import net.yuyuko.support.compose.ui.preferences.ListPreference
-import net.yuyuko.support.compose.ui.preferences.SwitchPreference
+import com.flamingo.support.compose.ui.layout.CollapsingToolbarLayout
+import com.flamingo.support.compose.ui.preferences.DiscreteSeekBarPreference
+import com.flamingo.support.compose.ui.preferences.Entry
+import com.flamingo.support.compose.ui.preferences.ListPreference
+import com.flamingo.support.compose.ui.preferences.SwitchPreference
 import net.yuyuko.updater.R
 import net.yuyuko.updater.data.settings.DEFAULT_AUTO_REBOOT
 import net.yuyuko.updater.data.settings.DEFAULT_AUTO_REBOOT_DELAY

@@ -28,7 +28,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.platform.LocalContext
 
 import net.yuyuko.updater.R
-import net.yuyuko.support.compose.runtime.rememberBoundService
+import com.flamingo.support.compose.runtime.rememberBoundService
 import net.yuyuko.updater.data.update.UpdateRepository
 import net.yuyuko.updater.data.update.UpdateState
 import net.yuyuko.updater.services.UpdateInstallerService
